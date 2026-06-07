@@ -1,0 +1,23 @@
+{
+  "features": [
+    "rodent_count_last_7d",
+    "rodent_count_last_14d",
+    "rodent_count_last_30d",
+    "rodent_count_last_60d",
+    "rodent_count_last_90d",
+    "rodent_rolling_mean_4w",
+    "rodent_rolling_mean_8w",
+    "rodent_rolling_std_8w",
+    "rodent_velocity_7d_vs_30d",
+    "rodent_velocity_14d_vs_60d",
+    "days_since_last_rodent_complaint",
+    "zip_baseline_rodent_rate",
+    "week_of_year",
+    "month",
+    "quarter",
+    "year",
+    "is_summer",
+    "is_winter",
+    "borough"
+  ]
+}

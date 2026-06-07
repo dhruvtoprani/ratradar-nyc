@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="RatRadar NYC predicts weekly rodent complaint surge risk across 177 NYC ZIP areas."
+    />
+    <meta name="theme-color" content="#100a18" />
+    <title>RatRadar NYC — Civic Intelligence</title>
+    <link rel="preconnect" href="https://cdn.plot.ly" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://cdn.plot.ly/plotly-3.1.0.min.js" defer></script>
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <aside class="sidebar">
+      <a class="brand" href="#overview" aria-label="RatRadar NYC home">
+        <span class="radar-mark"><i></i></span>
+        <span>RATRADAR <b>/ NYC</b></span>
+      </a>
+      <nav aria-label="Product sections">
+        <button class="nav-link active" data-section="overview">Overview</button>
+        <button class="nav-link" data-section="risk-map">Risk Map</button>
+        <button class="nav-link" data-section="zip-drilldown">ZIP Intelligence</button>
+        <button class="nav-link" data-section="model-intelligence">Model</button>
+        <button class="nav-link" data-section="data-explorer">Data Explorer</button>
+        <button class="nav-link" data-section="methodology">Methodology</button>
+      </nav>
+      <div class="sidebar-note">
+        <span class="pulse"></span>
+        <div>
+          <strong>Model online</strong>
+          <small id="model-version">Loading release…</small>
+        </div>
+      </div>
+    </aside>
+
+    <main>
+      <section id="overview" class="view active">
+        <header class="hero">
+          <div>
+            <span class="eyebrow">NYC CIVIC INTELLIGENCE · WEEKLY OPERATIONS</span>
+            <h1>See the surge<br /><em>before it lands.</em></h1>
+            <p>
+              RatRadar turns public complaint history into a weekly operating picture
+              for inspection priority across New York City.
+            </p>
+          </div>
+          <span class="status-chip"><i></i>177 ZIP AREAS SCORED</span>
+        </header>
+
+        <div class="metric-grid">
+          <article class="metric-card acid">
+            <span>Prediction Date</span>
+            <strong id="prediction-date">—</strong>
+            <small>Next seven-day window</small>
+          </article>
+          <article class="metric-card violet">
+            <span>Citywide Risk</span>
+            <strong id="citywide-risk">—</strong>
+            <small>Average modeled probability</small>
+          </article>
+          <article class="metric-card orange">
+            <span>Test ROC-AUC</span>
+            <strong id="roc-auc">—</strong>
+            <small>Recent chronological holdout</small>
+          </article>
+          <article class="metric-card coral">
+            <span>Top-10 Precision</span>
+            <strong id="top-ten-precision">—</strong>
+            <small>Weekly priority queue quality</small>
+          </article>
+        </div>
+
+        <article class="brief">
+          <span class="eyebrow">THIS WEEK’S RATRADAR BRIEF</span>
+          <h2 id="brief-title">Building the citywide brief…</h2>
+          <p id="brief-copy"></p>
+        </article>
+
+        <div class="split">
+          <article class="panel">
+            <div class="panel-head">
+              <div>
+                <span class="eyebrow">CITYWIDE RISK SURFACE</span>
+                <h2>Where attention moves next</h2>
+              </div>
+              <button class="text-link" data-jump="risk-map">Open full map →</button>
+            </div>
+            <div id="overview-map" class="plot compact-map"></div>
+          </article>
+          <article class="panel">
+            <div class="panel-head">
+              <div>
+                <span class="eyebrow">PRIORITY QUEUE</span>
+                <h2>Highest-risk ZIPs</h2>
+              </div>
+            </div>
+            <div id="top-risk-list" class="risk-list"></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="risk-map" class="view">
+        <header class="page-head">
+          <span class="eyebrow">GEOSPATIAL WATCHBOARD</span>
+          <h1>NYC Risk Map</h1>
+          <p>Explore relative complaint-surge probability across mapped ZIP areas.</p>
+        </header>
+        <div class="metric-grid three">
+          <article class="metric-card acid">
+            <span>Average Risk</span><strong id="map-average-risk">—</strong>
+            <small>Across mapped ZIP areas</small>
+          </article>
+          <article class="metric-card coral">
+            <span>High / Critical</span><strong id="map-high-count">—</strong>
+            <small>ZIPs above 60% probability</small>
+          </article>
+          <article class="metric-card orange">
+            <span>Highest Signal</span><strong id="map-highest-zip">—</strong>
+            <small id="map-highest-driver">Primary driver</small>
+          </article>
+        </div>
+        <article class="panel map-panel">
+          <div id="risk-map-plot" class="plot full-map"></div>
+        </article>
+      </section>
+
+      <section id="zip-drilldown" class="view">
+        <header class="page-head row-head">
+          <div>
+            <span class="eyebrow">LOCAL SIGNAL ANALYSIS</span>
+            <h1>ZIP Intelligence</h1>
+            <p>Trace complaint momentum, baseline behavior, and modeled risk.</p>
+          </div>
+          <label class="select-wrap">
+            <span>SELECT ZIP</span>
+            <select id="zip-select"></select>
+          </label>
+        </header>
+        <div id="zip-metrics" class="metric-grid"></div>
+        <article class="brief">
+          <span id="zip-brief-eyebrow" class="eyebrow">WHY THIS ZIP?</span>
+          <h2 id="zip-brief-title">—</h2>
+          <p id="zip-brief-copy">—</p>
+        </article>
+        <div class="split">
+          <article class="panel"><div id="complaint-chart" class="plot"></div></article>
+          <article class="panel"><div id="risk-chart" class="plot"></div></article>
+        </div>
+      </section>
+
+      <section id="model-intelligence" class="view">
+        <header class="page-head">
+          <span class="eyebrow">MODEL CONTROL ROOM</span>
+          <h1>Model Intelligence</h1>
+          <p>Ranking quality, threshold tradeoffs, and the global signal structure.</p>
+        </header>
+        <div id="model-metrics" class="metric-grid"></div>
+        <div class="split">
+          <article class="panel"><div id="roc-chart" class="plot"></div></article>
+          <article class="panel"><div id="pr-chart" class="plot"></div></article>
+        </div>
+        <article class="panel"><div id="importance-chart" class="plot tall"></div></article>
+      </section>
+
+      <section id="data-explorer" class="view">
+        <header class="page-head">
+          <span class="eyebrow">AUDITABLE PREDICTION TABLE</span>
+          <h1>Data Explorer</h1>
+          <p>Filter the latest scoring run and inspect the signal behind every ZIP.</p>
+        </header>
+        <div class="filters">
+          <label><span>BOROUGH</span><select id="borough-filter"></select></label>
+          <label><span>RISK TIER</span><select id="tier-filter"></select></label>
+          <button id="download-csv" class="primary-button">Download CSV</button>
+        </div>
+        <article class="panel table-panel">
+          <div class="table-meta"><strong id="row-count">—</strong> rows</div>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>ZIP</th><th>Borough</th><th>Risk</th><th>Tier</th>
+                  <th>Last 7d</th><th>Velocity</th><th>Primary signal</th>
+                </tr>
+              </thead>
+              <tbody id="explorer-body"></tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section id="methodology" class="view">
+        <header class="page-head">
+          <span class="eyebrow">MODEL CARD · RELEASE 0.2</span>
+          <h1>Methodology</h1>
+          <p>Clear assumptions, strict leakage controls, and responsible interpretation.</p>
+        </header>
+        <article class="brief warning">
+          <span class="eyebrow">CRITICAL INTERPRETATION</span>
+          <h2>A complaint-surge predictor, not a rat census.</h2>
+          <p>
+            311 activity reflects reporting behavior, access, awareness, trust, and
+            local norms in addition to underlying rodent conditions.
+          </p>
+        </article>
+        <div class="method-grid">
+          <article class="panel copy-card">
+            <span class="number">01</span><h2>Prediction unit</h2>
+            <p>One mapped ZIP area × Monday prediction date, forecasting the next seven days.</p>
+          </article>
+          <article class="panel copy-card">
+            <span class="number">02</span><h2>Surge label</h2>
+            <p>Future complaints meet or exceed the ZIP’s past-only expanding 75th percentile.</p>
+          </article>
+          <article class="panel copy-card">
+            <span class="number">03</span><h2>Leakage control</h2>
+            <p>Every lag, baseline, threshold, and validation boundary uses information available at prediction time.</p>
+          </article>
+          <article class="panel copy-card">
+            <span class="number">04</span><h2>Responsible use</h2>
+            <p>Use predictions to prioritize inspection and investigation—not to stigmatize neighborhoods.</p>
+          </article>
+        </div>
+      </section>
+
+      <footer>
+        <span>RatRadar NYC · Public-data civic intelligence</span>
+        <a href="https://data.cityofnewyork.us/resource/erm2-nwe9.json">NYC Open Data ↗</a>
+      </footer>
+    </main>
+    <div id="loading" class="loading-screen">
+      <span class="radar-mark large"><i></i></span>
+      <strong>Calibrating the citywide signal…</strong>
+    </div>
+  </body>
+</html>
+

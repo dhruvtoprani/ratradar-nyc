@@ -1,0 +1,84 @@
+{
+  "rows": [
+    {
+      "feature": "is_winter",
+      "importance": 0.3221801221
+    },
+    {
+      "feature": "is_summer",
+      "importance": 0.2502284348
+    },
+    {
+      "feature": "month",
+      "importance": 0.054125376
+    },
+    {
+      "feature": "year",
+      "importance": 0.0425619185
+    },
+    {
+      "feature": "zip_baseline_rodent_rate",
+      "importance": 0.0363580771
+    },
+    {
+      "feature": "rodent_count_last_7d",
+      "importance": 0.0332484804
+    },
+    {
+      "feature": "rodent_count_last_14d",
+      "importance": 0.0285704657
+    },
+    {
+      "feature": "rodent_count_last_30d",
+      "importance": 0.0269846935
+    },
+    {
+      "feature": "rodent_rolling_mean_4w",
+      "importance": 0.0268782713
+    },
+    {
+      "feature": "week_of_year",
+      "importance": 0.0247653946
+    },
+    {
+      "feature": "rodent_rolling_mean_8w",
+      "importance": 0.0216735266
+    },
+    {
+      "feature": "rodent_count_last_60d",
+      "importance": 0.0195569769
+    },
+    {
+      "feature": "rodent_count_last_90d",
+      "importance": 0.0186847206
+    },
+    {
+      "feature": "borough_Queens",
+      "importance": 0.0146763194
+    },
+    {
+      "feature": "borough_Staten Island",
+      "importance": 0.0108581809
+    },
+    {
+      "feature": "rodent_rolling_std_8w",
+      "importance": 0.0105518047
+    },
+    {
+      "feature": "quarter",
+      "importance": 0.0099999346
+    },
+    {
+      "feature": "days_since_last_rodent_complaint",
+      "importance": 0.0099945078
+    },
+    {
+      "feature": "borough_Bronx",
+      "importance": 0.0098496545
+    },
+    {
+      "feature": "borough_Manhattan",
+      "importance": 0.0086684115
+    }
+  ]
+}
