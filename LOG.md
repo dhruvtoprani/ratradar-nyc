@@ -88,3 +88,16 @@
 - Publish `dhruvtoprani/ratradar-nyc`
 - Add RatRadar NYC to the GitHub profile README
 - Verify the repository and profile links
+
+## Entry 007 — GitHub Release Published
+
+**Completed:**
+- Published the complete public repository at `https://github.com/dhruvtoprani/ratradar-nyc`
+- Added the live Vercel URL and civic-intelligence description to the GitHub repository metadata
+- Added RatRadar NYC as the lead project in the GitHub profile README
+- Added a concise portfolio statement focused on interpretable AI products and operational decision support
+
+**Next:**
+- Add sanitation and weather features
+- Promote SHAP values into local explanation cards
+- Automate weekly prediction and showcase refreshes

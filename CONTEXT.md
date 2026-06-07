@@ -19,7 +19,8 @@ The Phase 0–3 MVP is implemented, trained on official data, and browser-verifi
 - Feature, target, and leakage tests
 - Streamlit dashboard running successfully at `http://localhost:8501` in the current session
 - Static public showcase deployed at `https://ratradar-nyc.vercel.app`
-- GitHub release prepared for `https://github.com/dhruvtoprani/ratradar-nyc`
+- Public GitHub repository published at `https://github.com/dhruvtoprani/ratradar-nyc`
+- RatRadar NYC featured in the `dhruvtoprani/dhruvtoprani` profile README
 
 The local environment uses Python 3.12 in `.venv`. XGBoost required `brew install libomp` on this macOS machine.
 

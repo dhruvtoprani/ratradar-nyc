@@ -118,3 +118,16 @@
 **Files changed:**
 - `.gitignore`
 - `README.md`
+
+## 2026-06-07 — Public GitHub Release
+
+**Decision:** Publish the MVP on the public `dhruvtoprani/ratradar-nyc` repository and feature it first in the GitHub profile project table.
+
+**Why:** RatRadar is now a complete portfolio artifact with source code, model outputs, demo media, public deployment, and reproducible documentation.
+
+**Tradeoff:** The profile description prioritizes product impact and interpretability over implementation detail; the project README carries the full technical depth.
+
+**Files changed:**
+- `LOG.md`
+- `NEXT_STEPS.md`
+- `CONTEXT.md`

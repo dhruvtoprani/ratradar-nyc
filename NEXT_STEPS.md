@@ -14,8 +14,8 @@
 - [x] Rewrite the launch PRD
 - [x] Add two browser-verified demo GIFs
 - [x] Deploy at `https://ratradar-nyc.vercel.app`
-- [ ] Publish the complete release to `dhruvtoprani/ratradar-nyc`
-- [ ] Add RatRadar NYC to the GitHub profile README
+- [x] Publish the complete release to `dhruvtoprani/ratradar-nyc`
+- [x] Add RatRadar NYC to the GitHub profile README
 
 ## Later
 
